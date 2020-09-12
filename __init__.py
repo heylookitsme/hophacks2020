@@ -1,34 +1,66 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from flask import Blueprint, render_template, redirect, url_for, request
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin, login_user
+from . import db
+import time
 
-# init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
+class User(UserMixin, db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	email = db.Column(db.String(100), unique=True)
+	password = db.Column(db.String(100))
+	name = db.Column(db.String(1000))
 
-def create_app():
-	app = Flask(__name__)
+	sanitizer = db.Column(db.Integer)
+	cloth = db.Column(db.Integer)
+	gloves = db.Column(db.Integer)
+	surgical = db.Column(db.Integer)
 
-	app.config['SECRET_KEY'] = '12345678'
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
-	db.init_app(app)
+um = Blueprint('um',  __name__)
 
-	login_manager = LoginManager()
-	login_manager.login_view = 'um.login'
-	login_manager.init_app(app)
+@um.route('/projects/hophacks2020/login')
+def login():
+	return render_template(login.html)
 
-	from .user_management import um as umbp
-	app.register_blueprint(umbp)
+@um.route('/projects/hophacks2020/login', methods='POST']) 
+def login_submitted():
+	email = request.form.get('email')
+	password = request.form.get('password')
 
-	from .user_pages import up as upbp
-	app.register_blueprint(upbp)
+	user = User.query.filter_by(email=email).first()
 
-	@up.route('/projects/hophacks2020')
-	def home():
-		return render_template("index.html") 
+	if not user:
+		return redirect(url_for('register')
+	
+	if not check_password_hash(user.password, password):
+		return redirect(url_for('login'))
 
-	@up.errorhandler(404)
-	def page_not_found(e):
-		return render_template("404err.html")
+	login_user(user)
+	return redirect(url_for('user_pages.supplies'))
 
-	return app
+@um.route('/projects/hophacks2020/register')
+def register():
+	return render_template('register.html')
+
+@um.route('/projects/hophacks2020/register', methods=['POST'])
+def register_submitted():
+	email = request.form.get('email')
+	name = request.form.get('name')
+	password = request.form.get('password')
+
+	user = User.query.filter_by(email=email).first()
+
+	if user:
+		return redirect(url_for('login'))
+
+	new_user = User(id = int(time.time()), email=email, name=name, password=generate_password_hash(password, method='sha256'), sanitizer = 0, cloth = 0, gloves = 0, surgical = 0)
+
+	db.session.add(new_user)
+	db.session.commit()
+	
+	return redirect(url_for('login')) 
+
+@um.route('/projects/hophacks2020/logout')
+def logout():
+	logout_user()
+	return redirect('login')
