@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user
-from . import db
+from __init__ import db
 import time
 
 class User(UserMixin, db.Model):
@@ -22,17 +22,14 @@ um = Blueprint('um',  __name__)
 def login():
 	return render_template(login.html)
 
-@um.route('/projects/hophacks2020/login', methods='POST']) 
+@um.route('/projects/hophacks2020/login', methods=['POST']) 
 def login_submitted():
 	email = request.form.get('email')
 	password = request.form.get('password')
 
 	user = User.query.filter_by(email=email).first()
 
-	if not user:
-		return redirect(url_for('register')
-	
-	if not check_password_hash(user.password, password):
+	if not user or not check_password_hash(user.password, password):
 		return redirect(url_for('login'))
 
 	login_user(user)
