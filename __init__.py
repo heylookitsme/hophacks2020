@@ -9,7 +9,7 @@ def create_app():
 	app = Flask(__name__)
 
 	app.config['SECRET_KEY'] = '12345678'
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 
 	db.init_app(app)
 
