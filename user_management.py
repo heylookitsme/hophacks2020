@@ -35,7 +35,7 @@ def login_submitted():
 	#print(email, password) #for debugging only 
 
 	login_user(user)
-	return redirect(url_for('boler'))
+	return redirect(url_for('up.supplies'))
 
 @um.route('/register')
 def register():
