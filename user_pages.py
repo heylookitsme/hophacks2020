@@ -14,10 +14,11 @@ def supplies():
 
 	#keeping json around for future extensibility of public supplies, or secondary uses
 	tempdict = { "gloves" : current_user.gloves, "cloth" : current_user.cloth, "surgical" : current_user.surgical, "sanitizer" :current_user.sanitizer}
-	with open("hophacks2020/static/supplied.json", "w") as outfile: 
-		 outfile.write(json.dumps(tempdict))
-	return render_template("supplies.html") #jsonify(tempdict) #"render_template("supplies.html", json.dumps(tempdict))
-
+	#with open("hophacks2020/static/supplied.json", "w") as outfile: 
+	#	 outfile.write(json.dumps(tempdict))
+	#return render_template("supplies.html") #jsonify(tempdict) #"render_template("supplies.html", json.dumps(tempdict))
+	return render_template("supplies.html", tempdict=tempdict)
+	
 @up.route('/supplies', methods=['POST'])
 def supp_edit():
 
