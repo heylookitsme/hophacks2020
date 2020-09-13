@@ -66,22 +66,22 @@
 		<div class="container">
 		<!-- Material form register -->
     <form action="/supplies" method="post">
-      <p class="h4 text-center py-4">supply edit</p>
+      <p class="h4 text-center py-4">Supply Stocks</p>
 
       <!-- Material input text -->
-        <input type="number" name="sanitizer" id="sanitizer">
+        <input type="number" value= {{tempdict.sanitizer}} name="sanitizer" id="sanitizer">
 	<label for="sanitizer" class="font-weight-light">Sanitizer Units</label><br>
      
-        <input type="number" name="gloves" id="gloves">
+        <input type="number" value= {{tempdict.gloves}} name="gloves" id="gloves">
 	<label for="gloves" class="font-weight-light">Gloves</label><br>
 
-        <input type="number" name="surgical" id="surgical" >
+        <input type="number" value= {{tempdict.surgical}} name="surgical" id="surgical" >
 	<label for="surgical" class="font-weight-light">Surgical masks</label><br>
 
-        <input type="number" name="cloth" id="cloth" >
+        <input type="number" value= {{tempdict.cloth}} name="cloth" id="cloth" >
 	<label for="cloth" class="font-weight-light">Cloth Masks</label><br>
 
-        <button class="btn btn-green" type="submit">setstuff</button>
+        <button class="btn btn-green" type="submit">set new values</button>
     
     </form>
 		</div>
@@ -98,18 +98,18 @@
       });
     });
 
-	var ay = JSON.parse(supplied);
-	console.log(ay[0]);
+	//var ay = JSON.parse(supplied);
+	//console.log(ay[0]);
     // Specify the JSON data to be displayed
-    var mydata =
-      [
-        {
-          "gloves": "0",
-          "cloth": "0",
-          "surgical": "0",
-          "sanitizer": "0"
-        },
-      ];
+    //var mydata =
+      //[
+       // {
+          //"gloves": "0",
+         // "cloth": "0",
+         // "surgical": "0",
+       //   "sanitizer": "0"
+       // },
+     // ];
   </script>
 
 </body>
