@@ -1,0 +1,117 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>supplies</title>
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon-16x16.png') }}" type="image/x-icon">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css') }}">
+
+  <!-- Include the Bootstrap Table CSS
+  for the table -->
+  <link rel="stylesheet"
+	href={{ url_for('static', filename='bootstrap-table.min.css') }}>
+
+</head>
+	<body>
+		<br>
+           <div class="container h-25">
+    <h1 class="text text-success text-center ">
+        Your Supplies
+    </h1>
+      <table class="table-striped border-success">
+        <thead>
+          <tr>
+            <th data-field="gloves">
+              <span class="text-success">
+                Gloves
+              </span>
+            </th>
+            <th data-field="cloth">
+              <span class="text-success">
+                Cloth
+              </span>
+            </th>
+            <th data-field="surgical">
+              <span class="text-success">
+                Surgical
+              </span>
+            </th>
+            <th data-field="sanitizer">
+              <span class="text-success">
+                    Sanitizer
+                </span>
+            </th>
+          </tr>
+        </thead>
+	 </table>
+  </div>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js') }}"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript"></script>
+  <script src="{{ url_for('static', filename='bootstrap-table.min.js') }}">
+  </script>
+		<div class="container">
+		<!-- Material form register -->
+    <form action="/supplies" method="post">
+      <p class="h4 text-center py-4">supply edit</p>
+
+      <!-- Material input text -->
+        <input type="number" name="sanitizer" id="sanitizer">
+	<label for="sanitizer" class="font-weight-light">Sanitizer Units</label><br>
+     
+        <input type="number" name="gloves" id="gloves">
+	<label for="gloves" class="font-weight-light">Gloves</label><br>
+
+        <input type="number" name="surgical" id="surgical" >
+	<label for="surgical" class="font-weight-light">Surgical masks</label><br>
+
+        <input type="number" name="cloth" id="cloth" >
+	<label for="cloth" class="font-weight-light">Cloth Masks</label><br>
+
+        <button class="btn btn-green" type="submit">setstuff</button>
+    
+    </form>
+		</div>
+  <script src="{{ url_for('static', filename='bootstrap-table.min.js') }}">
+  </script>
+
+  <script type="text/javascript" >
+    $(document).ready(function () {
+
+      // Use the given data to create
+      // the table and display it
+      $('table').bootstrapTable({
+        data: mydata
+      });
+    });
+
+	var ay = JSON.parse(supplied);
+	console.log(ay[0]);
+    // Specify the JSON data to be displayed
+    var mydata =
+      [
+        {
+          "gloves": "0",
+          "cloth": "0",
+          "surgical": "0",
+          "sanitizer": "0"
+        },
+      ];
+  </script>
+
+</body>
+
+</html>

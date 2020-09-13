@@ -6,7 +6,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Hophacks 2020 Project - Sanitation Network</title>
   <!-- MDB icon -->
-  <link rel="icon" href="{{ url_for('static', filename='img/favicon-16x16.png"') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon-16x16.png') }}" type="image/x-icon">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
@@ -25,7 +25,7 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-        <h1 class="font-weight-light">Sanitation Blockchain</h1>
+        <h1 class="font-weight-light">Sanitation Station</h1>
         <p class="lead">management of masks, sanitation supplies, PPE, and other equiptment in your local communities</p>
       </div>
     </div>
@@ -36,27 +36,29 @@
 <section class="py-5">
   <div class="container">
     <h2 class="font-weight-light">Objective</h2>
-    <p>Sanitation Blockchain™ opts to create Solutions for you, your company, community, school, or neighbourhood. It is the case that we are proponents of seemingly counter intuitivel resource sharing, as it is probably the case for people who don't have access to masks as readily. Also this just makes it easier to incentivise people to obtain masks and actuall wear them. but basically it all equiptment should be accesible to everyone in a community. i suppose this could be used for other stuff but its <b>primarily</b> supposed to be used for sharing corona-stuff right now, or keeping inventory of what is on hand for distribution</p>
-  </div>
+    <p>Sanitation Station™ opts to create Solutions for you, your company, community, school, or neighbourhood. In the advent of COVID-19, we've seen that the supply of sanitary equiptment, masks, gloves, cleaning cloths, all are vital to preventing a pandemic from spreading. Pointedly, we all need access to masks as COVID is spread via repiritory means. However, it is the case that sometimes masks are scarce, sometimes a member of the community might have some santitation materials in stock when there are none at the store. For communities, we believe that sharing what resources we have can ease the spread of COVID for us all. </p>  </div>
 </section>
+
+<div class="container">
+	<center>	   <div class=""> <h3>Register or Log in </h3>
+                <a href="register"><button class="btn btn-blue .btn-lg shadow-none">Register</button></a> 
+                <a href="login"><button class="btn btn-green .btn-lg shadow-none">Log in</button></a>
+        </div>
+	</center>
+	<br>
+</div>
 
 <!--sign up options-->
 <section>
-	<div class="container">
-<div class="row ">
-	<div class="col-md-6"> <h3>Register or Log in </h3>
-		<p><a href="register">sign up</a><br>
-		<a href="login">log in</a> </p>
-	</div>
-  <div class="col-md-6"> 
-  <p>we love to see it we love to see it log in log in here please log in</p>
-  </div>
+	<div class="container w-60">
+  <div class="mx-auto w-60"> 
+  <p class="lead">Making a change in your area involves your community directly. It's a simple step to tell a few friends you know to broadcast what resources they have that might help others, and it could be beyond comforting for some other members of your comunity</p>
 </div>
 	</div>
 </section>
 
 	<!--Card-->
-<div class="card m-5" style="width: 22rem;">
+<div class="card m-5 mx-auto" style="width: 22rem;">
 
   <!--Card image-->
   <div class="view overlay">
@@ -69,27 +71,26 @@
   <!--Card content-->
   <div class="card-body">
     <!--Title-->
-    <h4 class="card-title">Wash your hands!!!</h4>
+    <h4 class="card-title">Wash your hands!</h4>
     <!--Text-->
-    <p class="card-text">please!!!</p>
+    <p class="card-text">"Regular handwashing is one of the best ways to remove germs, avoid getting sick, and prevent the spread of germs to others. Whether you are at home, at work, traveling, or out in the community, find out how handwashing with soap and water can protect you and your family. " <br> - The CDC</p>
   </div>
 
 </div>
 <!--/.Card-->
 
-  <!-- jQuery 
-  <script type="text/javascript" src="js/jquery.min.js"></script> -->
+<!-- jQuery--> 
 
-  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js') }}"></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript"></script>
+
 
 </body>
 </html>
