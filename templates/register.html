@@ -5,18 +5,20 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>log in</title>
   <!-- MDB icon -->
-  <link rel="icon" href="http://itsmerachel.xyz/projects/hophacks2020/img/favicon-16x16.png" type="image/x-icon">
+  <link rel="icon" href="{{ url_for('static', filename='favicon-16x16.png') }}" type="image/x-icon">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="log%20in_files/all.css">
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="log%20in_files/css.css">
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="log%20in_files/bootstrap.css">
+
+<!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
   <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="log%20in_files/mdb.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css') }}">
   <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="log%20in_files/style.css">
-<style type="text/css">/* Chart.js */
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+  <style type="text/css">/* Chart.js */
 @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
 	<body data-gr-c-s-loaded="true" class="vsc-initialized">
 		<br>
@@ -59,9 +61,10 @@
 </div>
 
 </div>
+</div>
 
 <div class="text-center mt-3">
-	<a href="http://itsmerachel.xyz/projects/hophacks2020/index.html"> <button class="btn shadow-none btn-cyan waves-effect waves-light">back to home</button></a>
+	<a href="/"><button class="btn shadow-none btn-cyan waves-effect waves-light">back to home</button></a>
       </div>
 <!-- Card -->
 
